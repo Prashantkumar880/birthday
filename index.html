@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to top right, #f8d7da 0%, #f7c0c0 100%);
+      font-family: 'Great Vibes', cursive;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .neon {
+      color: #fff;
+      text-shadow: 0 0 10px #ff77aa, 0 0 20px #ff77aa, 0 0 30px #ff77aa;
+    }
+    .typing {
+      border-right: .1em solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white; }
+    }
+    .heart {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+    .heart::after {
+      left: -15px;
+      top: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+    }
+    .cake-container, .choco-container {
+      animation: cakeRise 2s ease-out forwards;
+      transform: scale(0);
+      opacity: 0;
+    }
+    @keyframes cakeRise {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .slide-img {
+      display: none;
+      margin: auto;
+      border-radius: 20px;
+    }
+    .active-slide {
+      display: block;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen text-center p-6 relative">
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+  </audio>
+
+  <h1 class="text-6xl neon font-bold animate-bounce mb-6">🎉 Happy Birthday, Motki! 🎉</h1>
+  <p class="text-2xl text-white mt-4 max-w-2xl">I love you jaaneman, Baua , Motki, i love you more than anything in life 💖</p>
+
+  <!-- Love Letter Section -->
+  <div class="mt-10 max-w-3xl bg-white bg-opacity-20 p-6 rounded-xl shadow-xl backdrop-blur-sm">
+    <h2 class="text-3xl text-pink-700 font-bold mb-4">A Special Message 💌</h2>
+    <p class="text-xl text-white typing">Every moment with you is a beautiful memory in the making. I feel lucky to celebrate your special day with you. You deserve the universe and more. I love you endlessly. 💘</p>
+  </div>
+
+  <!-- Surprise 1 -->
+  <div id="surprise1" class="hidden flex-col items-center mt-10">
+    <div class="w-full flex justify-center flex-wrap gap-4">
+      <img class="slide-img active-slide w-80 h-auto rounded-3xl shadow-lg" src="https://i.ibb.co/wzvhcsM/romantic-couple.jpg" alt="Photo1" />
+      <img class="slide-img w-80 h-auto rounded-3xl shadow-lg" src="https://i.ibb.co/6HqN0td/romantic2.jpg" alt="Photo2" />
+      <img class="slide-img w-80 h-auto rounded-3xl shadow-lg" src="https://ibb.co/5hp60pRd" alt="Photo3" />
+      <img class="slide-img w-80 h-auto rounded-3xl shadow-lg" src="th(9).jpg" alt="Your Personal Photo" />
+    </div>
+    <h2 class="text-5xl text-white neon animate-bounce my-4">🎂 Happy Birthday to My Baua! 🎂</h2>
+  </div>
+
+  <!-- Surprise 2 -->
+  <div id="surprise2" class="hidden flex-col items-center mt-10">
+    <div class="cake-container mt-6">
+      <img src="https://i.ibb.co/n7ZKsx5/birthday-cake.gif" alt="Cake Cutting" class="w-64 h-auto mx-auto rounded-xl shadow-xl" />
+    </div>
+    <div class="choco-container mt-6">
+      <img src="https://i.ibb.co/z2XP7nG/chocolate-box.gif" alt="Chocolates" class="w-64 h-auto mx-auto rounded-xl shadow-xl" />
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="flex flex-col sm:flex-row gap-4 mt-10">
+    <button id="btn1" class="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-lg shadow-md">Surprise 1 💖</button>
+    <button id="btn2" class="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full text-lg shadow-md">Surprise 2 🍫🎂</button>
+  </div>
+
+  <!-- Floating Hearts -->
+  <script>
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 4 + Math.random() * 4 + 's';
+      document.body.appendChild(heart);
+    }
+
+    document.getElementById('btn1').addEventListener('click', () => {
+      document.getElementById('surprise1').classList.remove('hidden');
+      document.getElementById('btn1').style.display = 'none';
+    });
+
+    document.getElementById('btn2').addEventListener('click', () => {
+      document.getElementById('surprise2').classList.remove('hidden');
+      document.querySelector('.cake-container').style.animationPlayState = 'running';
+      document.querySelector('.choco-container').style.animationPlayState = 'running';
+      document.getElementById('btn2').style.display = 'none';
+    });
+
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide-img");
+
+    function showSlides() {
+      slides.forEach((slide) => slide.classList.remove("active-slide"));
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].classList.add("active-slide");
+      setTimeout(showSlides, 3000);
+    }
+    showSlides();
+  </script>
+</body>
+</html>
